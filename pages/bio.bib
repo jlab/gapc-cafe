@@ -1,0 +1,320 @@
+@ARTICLE{JAN:REE:GIE:2008,
+  author = {Janssen, S. and Reeder, J. and Giegerich, R.},
+  title = {{Shape based indexing for faster search of {RNA} family databases}},
+  journal = {BMC Bioinformatics},
+  year = {2008},
+  volume = {9},
+  pages = {131},
+  abstract = {Background: Most non-coding RNA families exert their function by means
+        of a conserved, common secondary structure. The Rfam data base contains
+        more than five hundred structurally annotated RNA families. Unfortunately,
+        searching for new family members using covariance models (CMs) is
+        very time consuming. Filtering approaches that use the sequence conservation
+        to reduce the number of CM searches, are fast, but it is unknown
+        to which sacrifice.
+
+Results: We present a new filtering approach,
+        which exploits the family specific secondary structure and significantly
+        reduces the number of CM searches. The filter eliminates approximately
+        85\% of the queries and discards only 2.6\% true positives when evaluating
+        Rfam against itself. First results also capture previously undetected
+        non-coding RNAs in a recent human RNAz screen.
+
+Conclusion: The RNA
+        shape index filter (RNAsifter) is based on the following rationale:
+        An RNA family is characterised by structure, much more succinctly
+        than by sequence content. Structures of individual family members,
+        which naturally have different length and sequence composition, may
+        exhibit structural variation in detail, but overall, they have a
+        common shape in a more abstract sense. Given a fixed release of the
+        Rfam data base, we can compute these abstract shapes for all families.
+        This is called a shape index. If a query sequence belongs to a certain
+        family, it must be able to fold into the family shape with reasonable
+        free energy. Therefore, rather than matching the query against all
+        families in the data base, we can first (and quickly) compute its
+        feasible shape(s), and use the shape index to access only those families
+        where a good match is possible due to a common shape with the query.},
+  doi = {10.1186/1471-2105-9-131},
+  url = {http://www.biomedcentral.com/content/pdf/1471-2105-9-131.pdf}
+}
+
+@ARTICLE{THE:REE:GIE:2008,
+  author = {Theis, Corinna and Reeder, Jens and Giegerich, Robert},
+  title = {{KnotInFrame: prediction of -1 ribosomal frameshift events}},
+  journal = {Nucl. Acids Res.},
+  year = {2008},
+  volume = {36},
+  pages = {6013-20},
+  number = {18},
+  doi = {10.1093/nar/gkn578},
+  url = {http://nar.oxfordjournals.org/cgi/reprint/gkn578v1.pdf},
+  abstract = {Programmed -1 ribosomal frameshift (-1 PRF)
+allows for alternative reading frames within one
+mRNA. First found in several viruses, it is now
+believed to exist in all kingdoms of life. Strong stimulators for -1 PRF are a heptameric slippery site
+and an RNA pseudoknot. Here, we present a new
+algorithm KnotInFrame, for the automatic detection
+of À1 PRF signals from genomic sequences. It finds
+the frameshifting stimulators by means of a specialized RNA-pseudoknot folding program, fast enough
+for genome-wide analyses. Evaluations on known
+-1 PRF signals demonstrate a high sensitivity.
+  }
+}
+
+@ARTICLE{REE:REE:GIE:2007,
+  author = {Reeder, Janina and Reeder, Jens and Giegerich, Robert},
+  title = {{Locomotif: from graphical motif description to RNA motif search.}},
+  journal = {Bioinformatics},
+  year = {2007},
+  volume = {23},
+  pages = {i392},
+  number = {13},
+  doi = {doi:10.1093/bioinformatics/btm179},
+  publisher = {Oxford Univ Press},
+  url = {http://bioinformatics.oxfordjournals.org/content/23/13/i392.full.pdf},
+  abstract = {Motivation and Results: Motivated by the recent rise of interest in
+small regulatory RNAs, we present Locomotif — a new approach for
+locating RNA motifs that goes beyond the previous ones in three
+ways: (1) motif search is based on efficient dynamic programming
+algorithms, incorporating the established thermodynamic model of
+RNA secondary structure formation. (2) motifs are described
+graphically, using a Java-based editor, and search algorithms are
+derived from the graphics in a fully automatic way. The editor allows
+us to draw secondary structures, annotated with size and sequence
+information. They closely resemble the established, but informal way
+in which RNA motifs are communicated in the literature. Thus, the
+learning effort for Locomotif users is minimal. (3) Locomotif employs
+a client-server approach. Motifs are designed by the user locally.
+Search programs are generated and compiled on a bioinformatics
+server. They are made available both for execution on the server,
+and for download as C source code plus an appropriate makefile.
+}
+}
+
+@ARTICLE{REE:STE:GIE:2007,
+  author = {Reeder, Jens and Steffen, Peter and Giegerich, Robert},
+  title = {{pknotsRG: RNA pseudoknot folding including near-optimal structures
+        and sliding windows.}},
+  journal = {Nucleic Acids Res},
+  year = {2007},
+  volume = {35},
+  pages = {W320-4.},
+  number = {Web Server issue},
+  month = {July},
+  abstract = {RNA pseudoknots are an important structural feature of RNAs, but often
+        neglected in computer predictions for reasons of efficiency. Here,
+        we present the pknotsRG Web Server for single sequence RNA secondary
+        structure prediction including pseudoknots. pknotsRG employs the
+        newest Turner energy rules for finding the structure of minimal free
+        energy. The algorithm has been improved in several ways recently.
+        First, it has been reimplemented in the C programming language, resulting
+        in a 60-fold increase in speed. Second, all suboptimal foldings up
+        to a user-defined threshold can be enumerated. For large scale analysis,
+        a fast sliding window mode is available. Further improvements of
+        the Web Server are a new output visualization using the PseudoViewer
+        Web Service or RNAmovies for a movie like animation of several suboptimal
+        foldings. The tool is available as source code, binary executable,
+        online tool or as Web Service. The latter alternative allows for
+        an easy integration into bio-informatics pipelines. pknotsRG is available
+        at the Bielefeld Bioinformatics Server (http://bibiserv.techfak.uni-bielefeld.de/pknotsrg).},
+  address = {Faculty of Technology, Bielefeld University, 33615 Bielefeld, Germany.},
+  issn = {1362-4962},
+  keywords = {folding, pesudoknot, rna, useful, website},
+  url = {http://nar.oxfordjournals.org/content/35/suppl_2/W320.full.pdf}
+}
+
+@ARTICLE{REH:STE:HOEC:GIE:2004,
+  author = {Rehmsmeier, Marc and Steffen, Peter and Höchsmann, Matthias and Giegerich, Robert},
+  title = {Fast and effective prediction of micro{RNA}/target duplexes},
+  journal = {RNA},
+  year = {2004},
+  volume = {10},
+  pages = {1507-1517},
+  url = {http://rnajournal.cshlp.org/content/10/10/1507.full.pdf},
+  abstract = {MicroRNAs (miRNAs) are short RNAs that post-transcriptionally regulate the expression of target genes by binding to the target
+mRNAs. Although a large number of animal miRNAs has been defined, only a few targets are known. In contrast to plant
+miRNAs, which usually bind nearly perfectly to their targets, animal miRNAs bind less tightly, with a few nucleotides being
+unbound, thus producing more complex secondary structures of miRNA/target duplexes. Here, we present a program, RNA-
+hybrid, that predicts multiple potential binding sites of miRNAs in large target RNAs. In general, the program finds the
+energetically most favorable hybridization sites of a small RNA in a large RNA. Intramolecular hybridizations, that is, base
+pairings between target nucleotides or between miRNA nucleotides are not allowed. For large targets, the time complexity of
+the algorithm is linear in the target length, allowing many long targets to be searched in a short time. Statistical significance of
+predicted targets is assessed with an extreme value statistics of length normalized minimum free energies, a Poisson approximation of multiple binding sites, and the calculation of effective numbers of orthologous targets in comparative studies of
+multiple organisms. We applied our method to the prediction of Drosophila miRNA targets in 3'UTRs and coding sequence.
+RNAhybrid, with its accompanying programs RNAcalibrate and RNAeffective, is available for download and as a Web tool on
+the Bielefeld Bioinformatics Server (http://bibiserv.techfak.uni-bielefeld.de/rnahybrid/).
+}
+}
+
+@ARTICLE{VOSS:GIE:REH:2006,
+  author = {Voß, Björn and Giegerich, Robert and Rehmsmeier, Marc},
+  title = {Complete probabilistic analysis of {RNA} shapes},
+  journal = {BMC Biology},
+  year = {2006},
+  volume = {4},
+  pages = {5},
+  number = {1},
+  month = {February},
+  doi = {10.1186/1741-7007-4-5},
+  issn = {1741-7007},
+  url = {http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1479382/pdf/1741-7007-4-5.pdf},
+  abstract = {Background: Soon after the first algorithms for RNA folding became available, it was recognised
+that the prediction of only one energetically optimal structure is insufficient to achieve reliable
+results. An in-depth analysis of the folding space as a whole appeared necessary to deduce the
+structural properties of a given RNA molecule reliably. Folding space analysis comprises various
+methods such as suboptimal folding, computation of base pair probabilities, sampling procedures
+and abstract shape analysis. Common to many approaches is the idea of partitioning the folding
+space into classes of structures, for which certain properties can be derived.
+
+Results: In this paper we extend the approach of abstract shape analysis. We show how to
+compute the accumulated probabilities of all structures that share the same shape. While this
+implies a complete (non-heuristic) analysis of the folding space, the computational effort depends
+only on the size of the shape space, which is much smaller. This approach has been integrated into
+the tool RNAshapes, and we apply it to various RNAs.
+
+Conclusion: Analyses of conformational switches show the existence of two shapes with
+probabilities approximately 2/3
+vs. 1/3, whereas the analysis of a microRNA precursor reveals one
+shape with a probability near to 1.0. Furthermore, it is shown that a shape can outperform an
+energetically more favourable one by achieving a higher probability. From these results, and the fact
+that we use a complete and exact analysis of the folding space, we conclude that this approach
+opens up new and promising routes for investigating and understanding RNA secondary structure.
+}
+}
+
+@ARTICLE{STE:VOSS:REH:REE:GIE:2006,
+  author = {Steffen, Peter and Voß, Björn and
+    Rehmsmeier, Marc and Reeder,
+    Jens and Giegerich, Robert},
+  title = {{RNAshapes: an integrated RNA analysis package
+    based on abstract
+      shapes.}},
+  journal = {Bioinformatics},
+  year = {2006},
+  volume = {22},
+  pages = {500--503},
+  number = {4},
+  month = {February},
+  issn = {1367-4803},
+  url =
+  {http://bioinformatics.oxfordjournals.org/cgi/reprint/22/4/500.pdf},
+  abstract = {Summary: We introduce RNAshapes, a new software package that integrates three RNA analysis tools based on the abstract shapes approach: the analysis of shape representatives, the calculation of shape probabilities and the consensus shapes approach. This new package is completely reimplemented in C and outruns the original implementations significantly in runtime and memory requirements. Additionally, we added a number of useful features like suboptimal folding with correct dangling energies, structure graph output, shape matching and a sliding window approach.
+
+Availability: RNAshapes is freely available at http://bibiserv.techfak.uni-bielefeld.de/rnashapes/ as C source code, and as compiled binaries for the most common computer architectures. For Microsoft Windows, we also offer a graphical user interface with convenient access to the complete functionality of the package. }
+}
+
+@ARTICLE{REE:GIE:2004,
+  author = {Reeder, Jens and Giegerich, Robert},
+  title = {{Design, implementation and evaluation of a practical pseudoknot
+        folding algorithm based on thermodynamics.}},
+  journal = {BMC Bioinformatics},
+  year = {2004},
+  volume = {5},
+  pages = {104},
+  month = {August},
+  citeulike-article-id = {437763},
+  doi = {10.1186/1471-2105-5-104},
+  issn = {1471-2105},
+  keywords = {prediction, rna, secondary, structure},
+  url = {http://www.biomedcentral.com/content/pdf/1471-2105-5-104.pdf},
+  abstract = {Background:
+The general problem of RNA secondary structure prediction under the widely used thermodynamic model is known to be NP-complete when the structures considered include arbitrary pseudoknots. For restricted classes of pseudoknots, several polynomial time algorithms have been designed, where the O(n^6)time and O(n^4) space algorithm by Rivas and Eddy is currently the best available program.
+
+Results:
+We introduce the class of canonical simple recursive pseudoknots and present an algorithm that requires O(n^4) time and O(n^2) space to predict the energetically optimal structure of an RNA sequence, possible containing such pseudoknots. Evaluation against a large collection of known pseudoknotted structures shows the adequacy of the canonization approach and our algorithm.
+
+Conclusions:
+RNA pseudoknots of medium size can now be predicted reliably as well as efficiently by the new algorithm.}
+}
+
+@ARTICLE{GIE:VOSS:REH:2004,
+  author = {Giegerich, Robert and Voß, Björn and Rehmsmeier, Marc},
+  title = {Abstract shapes of {RNA}},
+  journal = {Nucleic Acids Research},
+  year = {2004},
+  volume = {32},
+  pages = {4843},
+  number = {16},
+  month = {September},
+  doi = {doi:10.1093/nar/gkh779},
+  url = {http://nar.oxfordjournals.org/cgi/reprint/32/16/4843.pdf},
+  abstract = {The function of a non-protein-coding RNA is often determined by its structure. Since experimental determination of RNA structure is time-consuming and expensive, its computational prediction is of great interest, and efficient solutions based on thermodynamic parameters are known. Frequently, however, the predicted minimum free energy structures are not the native ones, leading to the necessity of generating suboptimal solutions. While this can be accomplished by a number of programs, the user is often confronted with large outputs of similar structures, although he or she is interested in structures with more fundamental differences, or, in other words, with different abstract shapes. Here, we formalize the concept of abstract shapes and introduce their efficient computation. Each shape of an RNA molecule comprises a class of similar structures and has a representative structure of minimal free energy within the class. Shape analysis is implemented in the program RNAshapes. We applied RNAshapes to the prediction of optimal and suboptimal abstract shapes of several RNAs. For a given energy range, the number of shapes is considerably smaller than the number of structures, and in all cases, the native structures were among the top shape representatives. This demonstrates that the researcher can quickly focus on the structures of interest, without processing up to thousands of near-optimal solutions. We complement this study with a large-scale analysis of the growth behaviour of structure and shape spaces. RNAshapes is available for download and as an online version on the Bielefeld Bioinformatics Server.}
+}
+
+@ARTICLE{MEY:GIE:2002,
+  author = {Meyer, C. and Giegerich, R.},
+  title = {{Matching and Significance Evaluation of Sequence-Structure Patterns
+        in {RNA}}},
+  journal = {J. Physical Chemistry},
+  year = {2002},
+  volume = {216},
+  pages = {1-24},
+  url = {http://bibiserv.techfak.uni-bielefeld.de/adp/ps/adp_structurepatterns.pdf},
+  abstract = {Abstract. The discipline of Algebraic Dynamic Programming is a powerful method to design and implement versatile pattern matching algorithms on sequences; here we consider mixed sequence and secondary
+structure motifs in RNA. A recurring challenge when designing new pattern matchers is to provide a statistical analysis of pattern significance.
+We demonstrate that by the use of so-called canonical pattern descriptions, the expected number of hits on a sequence of length n can be
+computed a priori, using the pattern matcher itself. This provides a systematic way to calibrate the specificity of pattern matching algorithms.
+The technique is exemplified by examples using IRE and SECIS elements.
+}
+}
+
+@ARTICLE{THE:JAN:GIE:2010,
+  author = {Theis, Corinna and Janssen, Stefan and Giegerich, Robert},
+  title = {Prediction of RNA Secondary Structure Including Kissing Hairpin Motifs},
+  journal = {Proceedings of the 10th Workshop on Algorithms in Bioinformatics
+        (WABI 2010)},
+  year = {2010},
+  volume = {LNBI 6293},
+  pages = {52-64},
+  month = {9},
+  abstract = {We present three heuristic strategies for folding RNA sequences into
+        secondary structures including kissing hairpin motifs. The new idea
+        is to construct a kissing hairpin motif from an overlay of two simple
+        canonical pseudoknots. The difficulty is that the overlay does not
+        satisfy Bellman's Principle of Optimality, and the kissing hairpin
+        cannot simply be built from optimal pseudoknots. Our strategies have
+        time/space complexities of $O(n^4) / O(n^2)$, $O(n^4) / O(n^3)$,
+        and $O(n^5) / O(n^2)$. All strategies have been implemented in the
+        program pKiss and were evaluated against known structures. Surprisingly,
+        our simplest strategy performs best. As it has the same complexity
+        as the previous algorithm for simple pseudoknots, the overlay idea
+        opens a way to construct a variety of practically useful algorithms
+        for pseudoknots of higher topological complexity within $O(n^4)$
+        time and $ O(n^2)$ space.},
+  url = {http://bibiserv.cebitec.uni-bielefeld.de/pkiss/pkiss_paper.pdf}
+}
+
+@ARTICLE{JAN:GIE:2010,
+  author = {Janssen, Stefan and Giegerich, Robert},
+  title = {{Faster computation of exact RNA shape probabilities}},
+  journal = {Bioinformatics},
+  year = {2010},
+  volume = {26},
+  pages = {632-639},
+  number = {5},
+  abstract = {Motivation: Abstract shape analysis allows efficient computation of
+        a representative sample of low-energy foldings of an RNA molecule.
+        More comprehensive information is obtained by computing shape probabilities,
+        accumulating the Boltzmann probabilities of all structures within
+        each abstract shape. Such information is superior to free energies
+        because it is independent of sequence length and base composition.
+        However, up to this point, computation of shape probabilities evaluates
+        all shapes simultaneously and comes with a computation cost which
+        is exponential in the length of the sequence. Results: We device
+        an approach called RapidShapes that computes the shapes above a specified
+        probability threshold T by generating a list of promising shapes
+        and constructing specialized folding programs for each shape to compute
+        its share of Boltzmann probability. This aims at a heuristic improvement
+        of runtime, while still computing exact probability values. Conclusion:
+        Evaluating this approach and several substrategies, we find that
+        only a small proportion of shapes have to be actually computed. For
+        an RNA sequence of length 400, this leads, depending on the threshold,
+        to a 10-138 fold speed-up compared with the previous complete method.
+        Thus, probabilistic shape analysis has become feasible in medium-scale
+        applications, such as the screening of RNA transcripts in a bacterial
+        genome.},
+  doi = {10.1093/bioinformatics/btq014},
+  url = {http://bioinformatics.oxfordjournals.org/cgi/reprint/26/5/632.pdf},
+}
+
+

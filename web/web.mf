@@ -1,0 +1,58 @@
+
+
+SRC = in
+DST = out
+
+INSERT = ./repl
+
+INSERT_FLAGS = -t gap_bib=$(SRC)/gap_bib.html \
+    -t adp_bib=$(SRC)/adp_bib.html \
+    -t bio_bib=$(SRC)/bio_bib.html \
+    -t apps=$(SRC)/apps.html
+
+OUTER_NAME = page.html_
+
+OUTER = $(SRC)/$(OUTER_NAME)
+
+MENU_NAME = menu.html_
+MENU = $(SRC)/$(MENU_NAME)
+
+PAGE_NAMES := $(filter-out $(OUTER_NAME) $(MENU_NAME), $(shell cd $(SRC) && echo *.html_))
+PAGES = $(addprefix $(SRC)/,$(PAGE_NAMES))
+
+HTML_NAMES= $(PAGE_NAMES:.html_=.html)
+HTML = $(addprefix $(DST)/,$(HTML_NAMES))
+
+BIB_NAMES = gap.bib adp.bib bio.bib
+BIBS = $(addprefix $(SRC)/,$(BIB_NAMES:.bib=_bib.html))
+
+
+$(info $(PAGES))
+$(info $(HTML))
+$(info $(BIBS))
+
+.PHONY: all
+
+all: $(HTML)
+
+
+$(HTML): $(OUTER) $(MENU)
+
+$(DST)/literature.html: $(BIBS)
+
+$(DST)/%.html: $(SRC)/%.html_
+	$(INSERT) $(INSERT_FLAGS) -t content=$< -t menu=$(MENU) $(OUTER)  > $@
+
+
+.PHONY: clean
+
+clean:
+	rm -f $(HTML)
+
+%_bib.html: %.bib
+	bibtex2html -r -d -nofooter -nokeywords --no-keys -o $(subst .html,,$@) $<
+	tidy -utf8 -asxhtml $@ | sed -e '0,/<body>/d' -e '/<\/body>/,$$d' | sed 's@"pages/@"@'  > $@.tmp
+	hlins -db $(SRC)/hlins.db $@.tmp -o $@
+	rm $@.tmp
+
+

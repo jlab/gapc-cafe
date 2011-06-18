@@ -1,0 +1,75 @@
+<h1>Introduction</h1>
+
+<p> These web pages describe Bellman’s GAP which is a programming system for
+writing <a href="http://en.wikipedia.org/wiki/Dynamic_programming">dynamic
+programming</a> algorithms over sequential data.  It is the second generation
+implementation of the <a href="#adp">algebraic dynamic programming framework
+(ADP)</a>.  </p>
+
+
+<h2>Bellman's GAP</h2>
+
+<p> The system includes the multi-paradigm language (GAP-L), its <a
+href="compiler.html">compiler (GAP-C)</a> and functional modules (GAP-M) .
+GAP-L includes declarative constructs, e.g.  tree grammars to model the search
+space, and imperative constructs for programming advanced scoring functions.
+The syntax of GAP-L is similar to C/Java to lower usage barriers. GAP-C
+translates the <a href="app/">high-level and index-free GAP-L programs</a> into
+efficient C++-Code, which is competitive with handwritten code. It includes a
+novel table design optimization algorithm, support for dynamic programming (DP)
+over multiple sequences (multi-track DP), sampling, optional top-down
+evaluation, various backtracing schemes etc. GAP-M includes modules for use in
+GAP-L programs. Examples are efficient representations of classification data
+types and sampling as well as filter helper functions.  </p>
+
+<h3>See also</h3>
+<ul>
+<li> <a href="literature.html#SAU:2011">Georg Sauthoff. Bellman's GAP: A 2nd Generation Language and System for Algebraic Dynamic Programming. 2011</a>
+</li>
+</ul>
+
+<h2>Examples</h2>
+
+<p> The <a href="app/">application section contains several DP examples</a>
+implemented in GAP-L and presented as web applications. The examples range from
+selected text book DP algorithms to RNA secondary structure prediction.  Web
+dialogs allow interactive ad-hoc experiments with different inputs and
+combinations of algebras.</p>
+
+<p>You can also download the source of the examples and compile them on your
+computer with the <a href="compiler.html">GAP compiler</a>.  </p>
+
+Several benchmarks and examples <a href="literature.html#SAU:2011">in the
+dissertation</a> show the practical efficiency of Bellman’s GAP in terms of
+program runtime and development time.
+
+<a name="adp"/>
+<h2>Algebraic dynamic programming</h2>
+
+<p>
+Algebraic Dynamic Programming (ADP) is a formal framework for specifying
+dynamic programming algorithms on sequences. It clearly separates the
+concerns of search space description, candidate description, candidate
+evaluation and tabulation.
+</p><p>
+Tree grammars (G) specify the search space,
+algebras (E) evaluate candidate terms and signatures (Σ) declare the
+function reservoir which tree grammars and algebras are using. Tabulation
+is specified through non-terminal annotation in tree grammars. The use of
+tree grammars for search space description eliminates subscripts from the
+algorithm description, i.e. a major source of programming errors in
+developing DP algorithms.
+</p><p>
+Algebras are building blocks to wrap different
+scoring schemes or optimization strategies (h). With product operations
+they can be combined to more powerful analyses.
+</p>
+
+<h3>See also</h3>
+<p>
+<ul>
+<li> <a href="literature.html#GIE:MEY:STE:2004">Robert Giegerich, Carsten Meyer, and Peter Steffen.  A discipline of dynamic programming over sequence data.  Science of Computer. 2004</a>
+</li>
+</ul>
+</p>
+

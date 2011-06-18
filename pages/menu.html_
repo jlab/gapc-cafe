@@ -1,0 +1,20 @@
+
+<div id="gap_menu">
+
+<a class="menu_link" href="/index.html">Introduction</a>
+
+<!-- <div class="menu_h1"> -->
+<a class="menu_link" href="/app/">Applications</a>
+<!-- </div> -->
+<div id="gap_sub_menu">
+${apps}
+</div>
+
+<a class="menu_link" href="/compiler.html">Compiler</a>
+<a class="menu_link" href="/literature.html">Literature</a>
+<a class="menu_link" href="/faq.html">FAQ</a>
+<a class="menu_link" href="/about.html">About</a>
+<a class="menu_link" href="/contact.html">Contact</a>
+<a class="menu_link" href="/impressum.html">Impressum</a>
+</div>
+

@@ -1,0 +1,34 @@
+# nginx file from /etc/nginx/sites.available
+
+# You may add here your
+# server {
+#	...
+# }
+# statements for each of your virtual hosts
+
+
+server {
+	listen   127.0.0.1:80 ;
+	server_name  localhost;
+
+	access_log  /var/log/nginx/gap.access.log;
+
+
+	location / {
+		root   /var/www/gap;
+		index  index.html;
+	}
+
+  location /app/resources {
+		root   /var/www/gap;
+  }
+
+
+	location /app {
+		proxy_pass      http://127.0.0.1:8080;
+	}
+
+
+}
+
+

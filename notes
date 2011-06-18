@@ -1,0 +1,17 @@
+mkdir run
+cd run
+../hello.wt --docroot='.' --http-address 127.0.0.1 --http-port 8080
+./hello.wt --docroot='.;t' --deploy-path '/' --http-address 127.0.0.1 --http-port 8080
+./gap.wt --docroot='.;/resources' --deploy-path '/' --http-address 127.0.0.1 --http-port 8080
+/gap.wt --docroot='.;/resources,/grammar' --deploy-path '/' --http-address 127.0.0.1 --http-port 8080
+
+ ./gap.wt --docroot='.;/app/resources,/resources,/grammar' --deploy-path '/app/' --http-address 127.0.0.1 --http-port 8080
+
+
+bibtex2html -t Publications --no-keys --nodoc -o literature  gapp.bib
+tidy -utf8 -asxhtml literature.html | sed -e '0,/<body>/d' -e '/<\/body>/,$d' > pages/literature
+
+
+bibtex2html -t Publications --no-keys -o literature gapp.bib
+tidy -utf8 -asxhtml literature.html | sed -e '0,/<body>/d' -e '/<\/body>/,$d' > pages/literature
+

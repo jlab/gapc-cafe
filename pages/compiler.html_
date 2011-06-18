@@ -1,0 +1,109 @@
+<h1>GAP Compiler</h1>
+
+<p>
+The Bellman’s GAP Compiler (GAP-C) is the novel ADP compiler which translates
+GAP-L programs into efficient C++ code. It implements several semantic analyses
+for optimization purposes, error reporting, type checking and automatic table
+design.
+</p>
+
+<p>The compiler is free and open-source. You can install it directly from
+popular linux distributions or download the source code. It is written in C++
+and uses <a href="http://flex.sourceforge.net/">flex</a> and <a href="http://www.gnu.org/software/bison/">bison</a> for its lexer and parser.</p>
+
+
+<h2>Install</h2>
+
+It is recommended to install GAP-C from the distribution's package manager
+(unless you want to develop GAP-C itself).
+
+<h3>Ubuntu</h3>
+
+<p>
+There is a <a href="https://launchpad.net/~g-sauthoff/+archive/ppa">Ubuntu
+Personal Package Archive (PPA) which includes gapc</a>. The page contains
+information how to include it into your Ubuntu system. From the command line it
+is just:
+</p>
+<tt>
+<pre>
+$ sudo add-apt-repository ppa:g-sauthoff/ppa
+$ sudo apt-get update
+$ sudo apt-get install bellmansgapc
+</pre>
+</tt>
+<p>Currently (2011, June), the repository supports the Lucid, Maverick and Natty
+Ubuntu releases.
+</p>
+
+<h3>Fedora Core</h3>
+
+For <a href="https://build.opensuse.org/package/show?package=bellmansgapc&project=home%3Agsauthof">Fedora there is a package repository of gapc</a> using the OpenSuse Build Server.
+
+You can install it like this:
+
+<tt><pre>
+# cd /etc/yum.repos
+# wget http://download.opensuse.org/repositories/home:/gsauthof/Fedora_14/home:gsauthof.repo
+# yum install bellmansgapc
+</pre></tt>
+
+<h3>Other</h3>
+
+For other .rpm or .deb based distributions <a href="contact.html">write me an
+email</a> or check out the linked .spec file or source packages.
+
+<h2>Compile and Install</h2>
+
+<p>
+<ol>
+<li>Get the source from Ubuntu PPA page.
+</li>
+<li>look into doc/deps and install the missing dependencies
+
+   (you can also consult the corresponding source package for up-to-date
+    distribution specific dependencies)
+</li>
+<li>copy a config file template from config/ to config.mf and adjust the settings
+
+   set at least the PREFIX var<br/>
+
+   example templates:<br/>
+
+<ul>
+<li>
+      config/example_local.mf - standard Linux system with
+                                or without local boost installation
+</li>
+<li>
+      config/solaris.mf - Solaris 10 with custom GCC
+</li>
+<li>
+      config/sun.mf - Solaris 10 with Sun CC
+                         Sun CC 12 with current patches is needed
+                         not recommended for performance reasons
+</li>
+<li>
+      ...
+</li>
+</ul>
+
+</li>
+<li> make
+</li>
+<li>make install
+</li>
+</ol>
+
+
+<h3>Optional</h3>
+<ul>
+<li> make test-unit  (quick, no codegen test)
+</li>
+<li> make test-paral (takes time, needs ghc, comprehensive codegen test)
+</li>
+</ul> 
+
+</p>
+
+

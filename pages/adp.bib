@@ -1,0 +1,283 @@
+@ARTICLE{STE:GIE:2006b,
+  author = {Steffen, P. and Giegerich, R.},
+  title = {{Table Design in Dynamic Programming}},
+  journal = {Information and Computation},
+  year = {2006},
+  volume = {204},
+  pages = {1325--1345},
+  number = {9},
+  abstract = {Dynamic Programming solves combinatorial optimization problems by recursive decomposition
+and tabulation of intermediate results. The first step in the design of a dynamic programming
+algorithm is to decide on the set of tables that will hold optimal solutions to subproblems. This
+step predetermines the shape of the dynamic programming recurrences as well as the asymptotic
+efficiency of the algorithm in time and space.
+
+We study dynamic programming in a formal framework where design of tables and problem
+decomposition can be done independently. Our main result shows that choosing a good table de-
+sign for a given decomposition is an NP-complete problem. A heuristic or approximate approach
+is therefore needed to automate good table design. We report on a strategy that combines user
+annotation and a brute force algorithm, which is shown to perform well in a large application.},
+  url = {http://www.techfak.uni-bielefeld.de/~psteffen/pub/tabulate.pdf}
+}
+
+@INPROCEEDINGS{GIE:STE:2006,
+  author = {Giegerich, R. and Steffen, P.},
+  title = {Challenges in the {C}ompilation of a {D}omain {S}pecific {L}anguage
+        for {D}ynamic {P}rogramming},
+  booktitle = {Proceedings of the 2006 ACM Symposium on Applied Computing},
+  year = {2006},
+  abstract = {Many combinatorial optimization problems in biosequence
+analysis are solved via dynamic programming. To increase
+programming productivity and program reliability, a do-
+main specific language embedded in Haskell has been suggested. We point out several shortcomings of this approach,
+and report on some challenges in the (ongoing) project of
+migrating this domain specific language from its host language to a directly compiled implementation. Most of these
+challenges are domain specific optimizations, which not only
+improve significant constant factors of runtime and space requirements, but also affect asymptotic efficiency. We report
+on our solutions to some of these problems, and point out
+others that are still open.
+},
+  url = {http://www.techfak.uni-bielefeld.de/~psteffen/pub/exbedding.pdf}
+}
+
+@ARTICLE{STE:GIE:2005,
+  author = {Steffen, Peter and Giegerich, Robert},
+  title = {{Versatile and declarative dynamic programming using pair algebras.}},
+  journal = {BMC Bioinformatics}, 
+  year = {2005},
+  volume = {6},
+  pages = {224},
+  number = {1},
+  month = {September},
+  abstract = {BACKGROUND: Dynamic programming is a widely used programming technique
+        in bioinformatics. In sharp contrast to the simplicity of textbook
+        examples, implementing a DP algorithm for a novel and non-trivial
+        application is a tedious and error prone task. The algebraic dynamic
+        programming approach seeks to alleviate this situation by clearly
+        separating the dynamic programming recurrences and scoring schemes.
+        RESULTS: Based on this programming style, we introduce a generic
+        product operation of scoring schemes. This leads to a remarkable
+        variety of applications, allowing us to achieve optimizations under
+        multiple objective functions, alternative solutions and backtracing,
+        holistic search space analysis, ambiguity checking, and more, without
+        additional programming effort. We demonstrate the method on several
+        applications for RNA secondary structure prediction. CONCLUSIONS:
+        The product operation as introduced here adds a significant amount
+        of flexibility to dynamic programming. It provides a versatile testbed
+        for the development of new algorithmic ideas, which can immediately
+        be put to practice.},
+  doi = {http://dx.doi.org/10.1186/1471-2105-6-224},
+  issn = {1471-2105},
+  keywords = {dynamic-programming},
+  url = {http://www.biomedcentral.com/content/pdf/1471-2105-6-224.pdf}
+}
+
+@ARTICLE{GIE:MEY:STE:2004,
+  author = {Giegerich, Robert and Meyer, Carsten and Steffen, Peter},
+  title = {{A discipline of dynamic programming over sequence data.}},
+  journal = {Science of Computer Programming},
+  year = {2004},
+  volume = {51},
+  pages = {215--263},
+  number = {3},
+  month = {June},
+  abstract = {Dynamic programming is a classical programming technique, applicable
+        in a wide variety of domains such as stochastic systems analysis,
+        operations research, combinatorics of discrete structures, flow problems,
+        parsing of ambiguous languages, and biosequence analysis. Little
+        methodology has hitherto been available to guide the design of such
+        algorithms. The matrix recurrences that typically describe a dynamic
+        programming algorithm are difficult to construct, error-prone to
+        implement, and, in nontrivial applications, almost impossible to
+        debug completely.This article introduces a discipline designed to
+        alleviate this problem. We describe an algebraic style of dynamic
+        programming over sequence data. We define its formal framework, based
+        on a combination of grammars and algebras, and including a formalization
+        of Bellman's Principle. We suggest a language used for algorithm
+        design on a convenient level of abstraction. We outline three ways
+        of implementing this language, including an embedding in a lazy functional
+        language. The workings of the new method are illustrated by a series
+        of examples drawn from diverse areas of computer science.},
+  doi = {http://dx.doi.org/10.1016/j.scico.2003.12.005},
+  keywords = {dynamicprogramming, fp, functional},
+  url = {http://bibiserv.techfak.uni-bielefeld.de/adp/ps/GIE-MEY-STE-2004.pdf}
+}
+
+@INPROCEEDINGS{gie:mey:ste:2002,
+  author = {Giegerich, R. and Meyer, C. and Steffen, P.},
+  title = {Towards a discipline of dynamic programming},
+  booktitle = {Informatik bewegt},
+  year = {2002},
+  editor = {Schubert, S. and Reusch, B. and Jesse, N.},
+  series = {GI-Edition - Lecture Notes in Informatics},
+  pages = {3-44},
+  publisher = {Bonner K\"ollen Verlag},
+  abstract = {Dynamic programming is a classic programming technique,
+applicable in a wide variety of domains, like stochastic systems analysis,
+operations research, combinatorics of discrete structures, flow problems,
+parsing ambiguous languages, or biosequence analysis. Yet, heretofore
+no methodology was available guiding the design of such algorithms.
+The matrix recurrences that typically describe a dynamic programming
+algorithm are difficult to construct, error-prone to implement, and almost
+impossible to debug.
+
+This article introduces an algebraic style of dynamic programming over
+sequence data. We define its formal framework including a formalization
+of Bellman’s principle. We suggest a language for algorithm design on a
+convenient level of abstraction. We outline three ways of implementation,
+including an embedding in a lazy functional language. The workings of
+the new method are illustrated by a series of examples from diverse areas
+of computer science.
+},
+  url = {http://bibiserv.techfak.uni-bielefeld.de/adp/ps/adp_discipline.pdf}
+}
+
+@INPROCEEDINGS{gie:mey:2002,
+  author = {Giegerich, R. and Meyer, C.},
+  title = {{Algebraic Dynamic Programming}},
+  booktitle = {Algebraic Methodology And Software Technology, 9th International
+        Conference, AMAST 2002},
+  year = {2002},
+  editor = {Kirchner, H{\'e}l{\`e}ne and Ringeissen, Christophe},
+  volume = {2422},
+  series = lncs,
+  pages = {349-364},
+  address = {Saint-Gilles-les-Bains, Reunion Island, France},
+  publisher = {Springer},
+  abstract = {Abstract. Dynamic programming is a classic programming technique,
+applicable in a wide variety of domains, like stochastic systems analysis, operations research, combinatorics of discrete structures, flow problems, parsing with ambiguous grammars, or biosequence analysis. Yet, no
+methodology is available for designing such algorithms. The matrix recurrences that typically describe a dynamic programming algorithm are
+difficult to construct, error-prone to implement, and almost impossible
+to debug.
+
+This article introduces an algebraic style of dynamic programming over
+sequence data. We define the formal framework including a formalization
+of Bellman’s principle, specify an executable specification language, and
+show how algorithm design decisions and tuning for efficiency can be
+described on a convenient level of abstraction.
+},
+  url = {http://bibiserv.techfak.uni-bielefeld.de/adp/ps/adp.pdf}
+}
+
+@INPROCEEDINGS{gie:ste:2002,
+  author = {Giegerich, Robert and Steffen, Peter},
+  title = {Implementing Algebraic Dynamic Programming in the Functional and
+        the Imperative Programming Paradigm},
+  booktitle = {Mathematics of Program Construction},
+  year = {2002},
+  editor = {Boiten, E.A. and M\"oller, B.},
+  pages = {1-20},
+  publisher = {LNCS 2386},
+  abstract = {Algebraic dynamic programming is a new method for developing and reasoning about dynamic programming algorithms. In this
+approach, so-called yield grammars and evaluation algebras constitute
+abstract specifications of dynamic programming algorithms. We describe
+how this theory is put to practice by providing a specification language
+that can both be embedded in a lazy functional language, and trans-
+lated into an imperative language. Parts of the analysis required for the
+latter translation also gives rise to source-to-source transformations that
+improve the asymptotic efficiency of the functional implementation. The
+multi-paradigm system resulting from this approach provides increased
+programming productivity and effective validation.
+},
+  url = {http://bibiserv.techfak.uni-bielefeld.de/adp/ps/adp_implementing.pdf}
+}
+
+@ARTICLE{gie:2000a,
+  author = {Giegerich, R.},
+  title = {A Systematic Approach to Dynamic Programming in Bioinformatics},
+  journal = {Bioinformatics},
+  year = {2000},
+  volume = {16},
+  pages = {665-677},
+  abstract = {Motivation: Dynamic programming is probably the most
+popular programming method in bioinformatics. Sequence
+comparison, gene recognition, RNA structure prediction and
+hundreds of other problems are solved by ever new variants
+of dynamic programming. Currently, the development of a
+successful dynamic programming algorithm is a matter of
+experience, talent, and luck. The typical matrix recurrence
+relations that make up a dynamic programming algorithm are
+intricate to construct, and difficult to implement reliably. No
+general problem independent guidance is available.
+
+Results: This article introduces a systematic method for
+constructing dynamic programming solutions to problems
+in biosequence analysis. By a conceptual splitting of
+the algorithm into a recognition and an evaluation phase,
+algorithm development is simplified considerably, and
+correct recurrences can be derived systematically. Without
+additional effort, the method produces an early, executable
+prototype expressed in a functional programming language.
+The method is quite generally applicable, and while programming effort decreases, no overhead in terms of ultimate
+program efficiency is incurred.
+},
+  url = {http://bioinformatics.oxfordjournals.org/content/16/8/665.full.pdf}
+}
+
+@INPROCEEDINGS{GIE:2000b,
+  author = {Giegerich, Robert},
+  title = {Explaining and Controlling Ambiguity in Dynamic Programming},
+  booktitle = {Proceedings of Combinatorial Pattern Matching},
+  year = {2000},
+  volume = {1848},
+  series = lncs,
+  pages = {46-59},
+  publisher = {Springer},
+  abstract = {Ambiguity in dynamic programming arises from two independent sources, the non-uniqueness of optimal solutions and the particular recursion scheme by which the search space is evaluated. Ambiguity,
+unless explicitly considered, leads to unnecessarily complicated, inflexible, and sometimes even incorrect dynamic programming algorithms.
+Building upon the recently developed algebraic approach to dynamic
+programming, we formalize the notions of ambiguity and canonicity. We
+argue that the use of canonical yield grammars leads to transparent and
+versatile dynamic programming algorithms. They provide a master copy
+of recurrences, that can solve all DP problems in a well-defined domain.
+We demonstrate the advantages of such a systematic approach using
+problems from the areas of RNA folding and pairwise sequence comparison.},
+  url = {http://bibiserv.techfak.uni-bielefeld.de/adp/ps/ambi.pdf}
+}
+
+@TECHREPORT{gie:1998,
+  author = {Giegerich, R.},
+  title = {A Declarative Approach to the Development of Dynamic Programming
+        Algorithms, Applied to {RNA} Folding},
+  institution = {{Technische Fakult{\"a}t, Universit{\"a}t Bielefeld}},
+  year = {1998},
+  type = {{Report 98--02}},
+  abstract = {A new approach to the systematic development of dynamic programming
+algorithms is presented and applied to RNA folding. Analyses of the potential foldings of an RNA molecule have mainly been restricted to energy
+minimization over all feasible secondary structures. In order to develop more
+specific analyses, we split up the traditional dynamic programming approach
+into a structure recognition and an evaluation phase. Regular tree gram-
+mars are used to describe the recognized class of structures. This allows to
+analyse for presence (or even absence) of very specific structures in the folding space of an RNA molecule. An EBNF-like notation for tree grammars
+is developed. It turns into a recognizer by interpreting the EBNF-operators
+as parser combinators; the polynomial efficiency of dynamic programming
+is regained by the introduction of tabulating yield parsers.
+
+By abstraction from the result constructors of a recognizer, we obtain an abstract folding space evaluator, described in terms of higher-order functions.
+It can be instantiated towards any kind of analysis that can be specified by
+a so-called folding space evaluation algebra. Given such an instantiation, a
+first order implementation – i.e. a correct and efficient set of dynamic programming recurrencies – can be derived by straightforward mathematical
+reasoning. Overall, this results in a modular approach – different recognizers and different analyses can be combined freely.
+},
+  url = {http://bibiserv.techfak.uni-bielefeld.de/adp/ps/hornassedruck.pdf}
+}
+
+@ARTICLE{REE:STE:GIE:2005,
+  author = {Reeder, Janina and Steffen, Peter and Giegerich, Robert},
+  title = {Effective ambiguity checking in biosequence analysis},
+  journal = bmcbio,
+  year = {2005},
+  volume = {6},
+  number = {153},
+  url = {http://www.biomedcentral.com/content/pdf/1471-2105-6-153.pdf},
+  abstract = {Background:
+Ambiguity is a problem in biosequence analysis that arises in various analysis tasks solved via dynamic programming, and in particular, in the modeling of families of RNA secondary structures with stochastic context free grammars. Several types of analysis are invalidated by the presence of ambiguity. As this problem inherits undecidability (as we show here) from the namely problem for context free languages, there is no complete algorithmic solution to the problem of ambiguity checking.
+
+Results:
+We explain frequently observed sources of ambiguity, and show how to avoid them. We suggest four testing procedures that may help to detect ambiguity when present, including a just-in-time test that permits to work safely with a potentially ambiguous grammar. We introduce, for the special case of stochastic context free grammars and RNA structure modeling, an automated partial procedure for proving non-ambiguity. It is used to demonstrate non-ambiguity for several relevant grammars.
+
+Conclusion:
+Our mechanical proof procedure and our testing methods provide a powerful arsenal of methods to ensure non-ambiguity.}
+}
+
+

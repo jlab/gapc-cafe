@@ -1,0 +1,119 @@
+<h1>FAQ</h1>
+
+<ul>
+<li>
+<a href="#test">How to compile a simple test program?</a>
+</li>
+<li>
+<a href="#stochlink">Stochastic backtracing does not compile?</a>
+</li>
+<li>
+<a href="#stochbt">How to use stochastic backtracing?</a>
+</li>
+</ul>
+
+<a name="test"/>
+<h2>How to compile a simple test program?</h2>
+
+<tt><pre>
+$ mkdir test
+$ cd test
+$ cp /usr/share/gapc/examples/elm.gap .
+$ gapc -i buyerpp elm.gap -t --kbacktrace
+</pre></tt> 
+Meaning that the instance buyerpp (which is the product buyer*pretty) is used,
+a good table configuration is automatically derived and backtracing is used for
+pretty printing (faster).
+
+<tt><pre>
+$ make -f out.mf
+</pre></tt>
+
+The default filename of the generated makefile is out.mf (using -o foo.cc above
+changes it to foo.mf). This command compiles the generated C++.
+
+<tt><pre>
+$ ./out '1+2*3*4+5'
+Answer: 
+( 30 , (1+((2*(3*4))+5)) )
+( 30 , (1+(((2*3)*4)+5)) )
+( 30 , ((1+(2*(3*4)))+5) )
+( 30 , ((1+((2*3)*4))+5) )
+</pre></tt>
+
+<a name="stochlink"/>
+<h2>Stochastic backtracing does not compile?</h2>
+
+When using stochastic backtracing, the generated program needs to have libgsl
+installed. Under a Debian-like distribution you can just install the libgsl
+package that is suggested by the gapc package:
+
+<tt><pre>
+$ apt-cache show bellmansgapc | grep Suggest
+Suggests: libgsl0-dev, libgmp3-dev, libatlas-base-dev
+# apt-get install libgsl0-dev
+</pre></tt>
+
+The generated code contains a simple check for libgsl, such that a more
+informative error message is displayed instead of the default link error, in
+case that the library is not available.
+
+<a name="stochbt"/>
+<h2>How to use stochastic backtracing?</h2>
+
+The adpf.gap contains an example instance:
+
+<tt><pre>
+instance pfsampleshape = fold ( ( (p_func | p_func_id ) * shape5 )
+                                                    suchthat sample_filter ) ;
+</pre></tt>
+
+<p>
+The p_func_id algebra is used during backtracing and the sample_filter does the
+actual sampling - the p_func_id algebra extends the p_func algebra and
+overwrites the objective function - instead of summation it is now the
+identity. The shape5 algebra is a pretty-printing like algebra that is used
+during backtracing to print the candidates.
+</p>
+
+The instance is compiled via:
+
+<tt><pre>
+$ cp /usr/share/gapc/examples/adpf.gap .
+$ cp /usr/share/gapc/examples/adpf_filter.hh .
+$ gapc -t -i pfsampleshape --sample adpf.gap
+$ make -f out.mf
+</pre></tt>
+
+The generated program respects the <tt>-r</tt>, which takes the number of
+samples (of stochastic backtraces) as argument, e.g.:
+
+<tt><pre>
+$ ./out -r 1000 cgaugucaguac | head
+Answer: 
+( 0.0280974 ,  )
+( 0.0280974 ,  )
+( 0.0280974 ,  )
+( 0.0280974 , [] )
+( 0.0280974 ,  )
+( 0.0280974 ,  )
+( 0.0280974 ,  )
+( 0.0280974 ,  )
+( 0.0280974 ,  )
+</pre></tt>
+
+The first component is not of interest - the second component is the result of
+the pretty printing algebra (shape5). Counting the results we get the (sampled)
+shape probabilities:
+
+<tt><pre>
+$ ./out -r 1000 cgaugucaguac | \
+  awk -F'[(),]' '/^\(/ { ++s; ++a[$3]; } END { for (i in a) print i, a[i]/s; } '
+ []  0.017
+   0.983
+</pre></tt>
+
+You can specify the seed of the
+random number generator via exporting <tt>GSL_RNG_SEED</tt> environment
+variable.
+

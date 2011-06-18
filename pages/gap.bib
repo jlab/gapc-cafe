@@ -1,0 +1,89 @@
+
+@inproceedings{SAU:JAN:GIE:2011,
+  author = {Sauthoff, Georg and Janssen, Stefan and Giegerich, Robert},
+  title = {Bellman’s {GAP} - A Declarative Language for Dynamic
+    Programming},
+  booktitle = {Proceedings of 13th International ACM SIGPLAN Symposium on
+    Principles and Practice of Declarative Programming},
+  series = {PPDP '11},
+  year = {2011},
+  isbn = {978-1-4503-0776-5/11/07},
+  publisher = {ACM},
+  url = {http://www.techfak.uni-bielefeld.de/~gsauthof/docs/gapl.ppdp.2011.pdf},
+  abstract = {
+    Dynamic programming is a well-established technique to solve
+      combinatorial optimization problems. In several areas of applied
+      computer science, such as operations research, natural language
+      processing, or biosequence analysis, dynamic programming problems arise in many variations and with a considerable degree of sophistication. The simple way dynamic programming problems are
+      normally presented in computer science textbooks – as a set of table recurrences – scales poorly for real world problems, where the
+      search space is deeply structured and the scoring model is elaborate. Coming up with pages of correct recurrences is difficult, implementation is error-prone, and debugging is tedious. Algebraic
+      Dynamic Programming (ADP) is a language-independent, declarative approach which alleviates these problems for a relevant class
+      of dynamic programming problems over sequence data.
+
+      Bellman’s GAP implements ADP by providing a declarative
+      language (GAP-L) with a Java-reminiscent syntax, and a compiler
+      (GAP-C) translating declarative programs into C++ code, which is
+      competitive to handwritten code, and arguably more reliable. This
+      article introduces the GAP-L language, demonstrates the benefits
+      of developing dynamic programming algorithms in a declarative
+      framework by educational example, and reports on the practice of
+      programming bioinformatics applications with Bellman’s GAP.
+  }
+}
+
+@inproceedings{GIE:SAU:2011,
+  author = {Giegerich, Robert and Sauthoff, Georg},
+  title = {Yield grammar analysis in the {Bellman's} {GAP} compiler},
+  booktitle = {Proceedings of the Eleventh Workshop on Language
+    Descriptions, Tools and Applications},
+  series = {LDTA '11},
+  year = {2011},
+  isbn = {978-1-4503-0665-2},
+  publisher = {ACM},
+  url = {http://www.techfak.uni-bielefeld.de/~gsauthof/docs/gapc.ldta.2011.pdf},
+  abstract = {
+    Dynamic programming algorithms are traditionally expressed
+      by a set of table recurrences – a low level of abstraction
+      which renders the design of novel dynamic programming algorithms difficult and makes debugging cumbersome.
+
+      Bellman’s GAP is a declarative language supporting dynamic programming over sequence data. It implements algebraic dynamic programming and allows specifying algorithms by combining so-called yield grammars with evaluation algebras. Products on algebras allow to create novel
+      types of analysis from already given ones, without modifying tested components. Bellman’s GAP extends the previous concepts of algebraic dynamic programming in several
+      respects, such as an “interleaved” product operation and the
+      analysis of multi-track input.
+
+      Extensive analysis of the yield grammar is required for
+      generating efficient imperative code from the algebraic specification. This article gives an overview of the analyses required and presents three of them in detail. Measurements
+      with “real-world” applications demonstrate the quality of the
+      code produced.
+  }
+}
+
+@phdthesis{SAU:2011,
+  author = {Sauthoff, Georg},
+  title = {Bellman's {GAP}: A 2nd Generation Language and System for Algebraic Dynamic
+Programming},
+  school = {Bielefeld University},
+  year = {2011},
+  url = {http://bieson.ub.uni-bielefeld.de/volltexte/2011/1821/pdf/index.pdf},
+  abstract = {The dissertation describes the new Bellman’s GAP which is a programming system for writing dynamic programming algorithms over sequential data. It is the
+  second generation implementation of the algebraic dynamic programming frame-
+  work (ADP) [Giegerich et al., \em{A discipline of dynamic programming over sequence data}. 2004]. The system includes the multi-paradigm language (GAP-L), its
+  compiler (GAP-C), functional modules (GAP-M) and a web site (GAP Pages) to
+  experiment with GAP-L programs. GAP-L includes declarative constructs, e.g. tree
+  grammars to model the search space, and imperative constructs for programming
+  advanced scoring functions. The syntax of GAP-L is similar to C/Java to lower
+  usage barriers. GAP-C translates the high-level and index-free GAP-L programs
+  into efficient C++-Code, which is competitive with handwritten code. It includes a
+  novel table design optimization algorithm, support for dynamic programming (DP)
+  over multiple sequences (multi-track DP), sampling, optional top-down evaluation,
+  various backtracing schemes etc. GAP-M includes modules for use in GAP-L pro-
+  grams. Examples are efficient representations of classification data types and sampling as well as filter helper functions. GAP Pages contain web dialogs for selected
+  text book dynamic programming algorithms implemented in GAP-L. The web dialogs allow interactive ad-hoc experiments with different inputs and combinations
+  of algebras.
+
+  Several benchmarks and examples in the dissertation show the practical efficiency
+  of Bellman’s GAP in terms of program runtime and development time.
+  }
+}
+
+

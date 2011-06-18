@@ -1,0 +1,25 @@
+
+
+<h1>Publications</h1>
+
+This page lists the <a href="#gap_bib">publications about
+Bellman's GAP</a>, <a href="#adp_bib">publications about
+algebraic dynamic programming</a> (ADP, which is the theory
+behind Bellman's GAP) and <a href="#bio_bib">publications of
+bioinformatic applications</a> which are developed with ADP.
+
+<a name="gap_bib"/>
+<h2>Bellman's GAP</h2>
+
+${gap_bib}
+
+<a name="adp_bib"/>
+<h2>Algebraic Dynamic Programming</h2>
+
+${adp_bib}
+
+<a name="bio_bib"/>
+<h2>Bioinformatic Applications</h2>
+
+${bio_bib}
+

@@ -1,0 +1,67 @@
+# Last Modified: Fri Jun 17 23:17:54 2011
+#include <tunables/global>
+
+/var/www/gapapp/gap.wt {
+  #include <abstractions/base>
+
+  network inet stream,
+
+  # XXX remove those
+  /mnt/gms/local/wt-3.1.9/lib/lib*so* mr,
+  /var/www/gapapp/libwt.so.* mr,
+  /var/www/gapapp/libwthttp.so.* mr,
+
+  /var/www/gapapp/pages/menu.html_ r,
+  /var/www/gapapp/menu.rc r,
+  /var/www/gapapp/grammar/*.gap r,
+  /var/www/gapapp/grammar/*.hh r,
+
+  /var/www/gapapp/gapp.log w,
+
+  /var/www/gapapp/cached/* w,
+  /var/www/gapapp/cached/*/ rw,
+  /var/www/gapapp/cached/*/* rw,
+  /var/www/gapapp/output/*/ rw,
+  /var/www/gapapp/output/*/* rw,
+ 
+  /var/www/gapapp/log/* w,
+
+  /var/www/gapapp/cached/* cx -> gap_code,
+
+  /usr/bin/gapc cx -> gapc_code,
+  /usr/bin/make cx -> make_code,
+
+profile make_code {
+    #include <abstractions/base>
+    /var/www/gapapp/cached/*/ r,
+    /var/www/gapapp/cached/*/* rw,
+    /bin/dash ix,
+    /bin/cat ix,
+    /bin/sed ix,
+    /bin/mv ix,
+    /usr/bin/ld.* ix,
+    /usr/bin/g++* ix,
+    /usr/lib/gcc/*/*/cc1plus ix,
+    /usr/lib/gcc/*/*/collect2 ix,
+    /usr/bin/as ix,
+    /usr/share/gapc/config.mf r,
+    /usr/share/gapc/ r,
+    #/usr/include/rtlib/ r,
+    #/usr/include/rtlib/* r,
+    /usr/include/** r,
+  
+    /tmp/* rw,
+  }
+  
+profile gapc_code {
+    #include <abstractions/base>
+    /var/www/gapapp/grammar/*.gap r,
+    /var/www/gapapp/cached/*/* rw,
+  }
+  
+profile gap_code {
+    #include <abstractions/base>
+    /var/www/gapapp/output/*/* w,
+  }
+
+}

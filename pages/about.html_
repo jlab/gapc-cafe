@@ -1,0 +1,16 @@
+<h1>About</h1>
+
+<p> This site uses for static content <a href="http://nginx.org/">nginx</a>
+because it is fast and easy to configure. The interactive web application part
+is written in <a href="http://en.wikipedia.org/wiki/C%2B%2B">C++</a> using <a
+href="http://www.webtoolkit.eu/">Wt (a C++ Web Toolkit)</a>.  </p>
+
+<p>The Café related pictures were taken by <a
+href="http://www.techfak.uni-bielefeld.de/~robert/">Robert Giegerich</a>. The
+design of the header picture composition is by <a
+href="http://www.techfak.uni-bielefeld.de/ags/pi/pages/skonerma.htm">Susanne
+Konermann</a>. The actual Café is <a
+href="http://maps.google.com/maps/place?cid=4634046358772756083">Bellman's Café
+in Stockholm</a>. We thank the (actual) Bellman's Café team for their kind
+permission to use these photos for the presentation of dynamic programming.
+</p>
