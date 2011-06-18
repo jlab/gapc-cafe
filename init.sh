@@ -1,7 +1,7 @@
 set -e
 set -u
 
-uname 022
+umask 022
 
 WT=$1
 

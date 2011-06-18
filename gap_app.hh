@@ -10,8 +10,6 @@ class form;
 class gap_app : public Wt::WApplication {
 
   private:
-    Wt::WTreeView *tree_view_;
-    Wt::WStandardItemModel *model_;
     void init_header();
     void init_menu();
     void init_right();

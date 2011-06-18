@@ -3,7 +3,7 @@
 set -e
 set -u
 
-umasl 022
+umask 022
 
 make -C web
 
