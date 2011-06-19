@@ -443,7 +443,7 @@ void form::update_status()
       status_->setText("Compile Error (perhaps wrong product?)");
       break;
     case cruncher::RUN_ERROR:
-      status_->setText("Runtime error.");
+      status_->setText("Runtime error (resource limit).");
       break;
     case cruncher::SUCCESS:
       status_->setText("Execution complete.");
@@ -464,6 +464,8 @@ void form::clean_thread()
 void form::display_output()
 {
   output_->setText("");
+  if (cruncher_.state() != cruncher::SUCCESS)
+    return;
   std::string n(cruncher_.temp_dir() + "/out");
   std::ifstream f(n.c_str());
   if (!f.good())
@@ -564,7 +566,7 @@ void cruncher::run(const std::string &prod, const std::string &exe_name,
   process p;
   temp_dir_ = mk_tempdir("output");
   std::string out_name = "../" + temp_dir_ + "/out";
-  p.cwd("cached").cmd("./" + exe_name).alarm(60).out(out_name);
+  p.cwd("cached").cmd("./" + exe_name).alarm(60).mlimit(1024).out(out_name);
   foreach (std::string i, seqs)
     p.arg(i);
   crunch_state_ = RUNNING;
