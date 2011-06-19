@@ -15,3 +15,11 @@ tidy -utf8 -asxhtml literature.html | sed -e '0,/<body>/d' -e '/<\/body>/,$d' > 
 bibtex2html -t Publications --no-keys -o literature gapp.bib
 tidy -utf8 -asxhtml literature.html | sed -e '0,/<body>/d' -e '/<\/body>/,$d' > pages/literature
 
+url bibtex style -> siehe mail
+
+
+== Features ==
+
+mehrere examles zur auswahl
+
+
