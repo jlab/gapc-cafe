@@ -334,14 +334,10 @@ void form::mk_input(std::vector<std::string> &seqs)
   foreach (Wt::WLineEdit* i, lines_) {
     std::string s(i->text().toUTF8());
     boost::algorithm::trim(s);
-    if (s.size() > 100) {
-      status_->setText("Sequence too long.");
-      throw std::range_error("seq too long");
-    }
-    if (!seqsane(s)) {
-      status_->setText("Invalid character in input.");
-      throw std::range_error("invalid inp char");
-    }
+    if (s.size() > 100)
+      throw std::range_error("Sequence too long.");
+    if (!seqsane(s))
+      throw std::range_error("Invalid character in input.");
     seqs.push_back(s);
   }
 }
@@ -353,20 +349,14 @@ void form::mk_sel(std::vector<std::string> &sel)
       break;
     else {
       std::string p(i->currentText().toUTF8());
-      if (p.size() > 20) {
-        status_->setText("Product name too long."); 
-        throw std::range_error("prod too long");
-      }
-      if (!onlyascii(p)) {
-        status_->setText("Product screwed up!");
-        throw std::range_error("prod screw");
-      }
+      if (p.size() > 20)
+        throw std::range_error("Product name too long.");
+      if (!onlyascii(p))
+        throw std::range_error("Product screwed up!");
       sel.push_back(p);
     }
-  if (sel.empty()) {
-    status_->setText("No algebras selected!");
-    throw std::range_error("no sel");
-  }
+  if (sel.empty())
+    throw std::range_error("No algebras selected!");
 }
 
 void form::cp_files(const std::string &dest)
@@ -377,7 +367,7 @@ void form::cp_files(const std::string &dest)
           fs::path(dest + "/" + f + ".hh"),
         fs::copy_option::overwrite_if_exists);
     } catch (const std::exception &e) {
-      throw std::range_error("no sel");
+      throw std::range_error("Copy error. <a target=\"_blank\" href=\"contact.html\">Inform Webmaster</a>.");
     }
   }
 }
@@ -400,7 +390,7 @@ void form::compute()
     cp_files(cache_dir);
   } catch (const std::runtime_error &e) {
     Wt::WApplication::instance()->log("error") << "comp error: " << e.what();
-    status_->setText("Copy error. Inform Webmaster.");
+    status_->setText(e.what());
     return;
   }
   std::string prod = mk_prod(sel);
