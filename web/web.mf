@@ -50,7 +50,10 @@ clean:
 	rm -f $(HTML)
 
 %_bib.html: %.bib
-	bibtex2html -r -d -nofooter -nokeywords --no-keys -o $(subst .html,,$@) $<
+	bibtex2html -r -d -nofooter -nokeywords --no-keys --style plainhref -o $(subst .html,,$@) $<
+	# bibtex2html (1.94 at least) title href workaround
+	sed -e 's/\([a-z]\)<a/\1. <a/' -e 's/ <\/a>\./<\/a>/' $@ | sed ':a; $!N;s/\n<\/a>/<\/a>/;ta;P;D' | sed 's/\.<\/a>/<\/a>./' > $@.tmp2
+	mv $@.tmp2 $@
 	tidy -utf8 -asxhtml $@ | sed -e '0,/<body>/d' -e '/<\/body>/,$$d' | sed 's@"pages/@"@'  > $@.tmp
 	hlins -db $(SRC)/hlins.db $@.tmp -o $@
 	rm $@.tmp
