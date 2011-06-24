@@ -285,7 +285,10 @@ FUNCTION {format.date}
 }
 
 FUNCTION {format.btitle}
-{ title emphasize
+{ url empty$
+    { title emphasize }
+    { "\href{" * url * "}{" * title emphasize * "}" }
+  if$
 }
 
 FUNCTION {tie.or.space.connect}
