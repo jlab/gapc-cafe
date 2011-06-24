@@ -11,8 +11,8 @@ ${apps}
 </div>
 
 <a class="menu_link" href="/compiler.html">Compiler</a>
-<a class="menu_link" href="/literature.html">Literature</a>
 <a class="menu_link" href="/education.html">Education</a>
+<a class="menu_link" href="/literature.html">Literature</a>
 <a class="menu_link" href="/faq.html">FAQ</a>
 <a class="menu_link" href="/about.html">About</a>
 <a class="menu_link" href="/contact.html">Contact</a>
