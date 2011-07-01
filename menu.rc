@@ -3,6 +3,7 @@
 ;Binary Search Tree;optbin
 ;Matrix Multiplication;matrix
 ;Palindromes;pali
+;Alignment;affine
 *;RNA Folding;rnafolding
 ;Nussinov;nussinov
 ;Minimum Free Energy;adpfold

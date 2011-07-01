@@ -51,6 +51,7 @@ a { text-decoration:none; }
 
 .gap_input {
   width: 300px;
+  display: block;
 }
 
 foobar {

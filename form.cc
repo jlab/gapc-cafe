@@ -150,7 +150,7 @@ void form::read_file(const std::string &name)
     return;
   // XXX exception
   unsigned state = 0;
-  unsigned tracks = 0;
+  unsigned tracks = 1;
   while (!f.eof()) {
     std::string t;
     f >> t;
@@ -202,14 +202,14 @@ void form::read_file(const std::string &name)
       state = 3;
       break;
       case 3 :
-      if (t == ",")
+      if (t.find(',') != std::string::npos)
         ++tracks;
       else if (t.find('>') != std::string::npos) {
         state = 0;
-        tracks_ = tracks;
       }
     }
   }
+  tracks_ = tracks;
   update();
   create_code(name);
 }
