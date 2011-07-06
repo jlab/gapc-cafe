@@ -198,8 +198,10 @@ void form::read_file(const std::string &name)
       state = 0;
       break;
       case 2 :
-      t = 1;
-      state = 3;
+      if (t.find('<') != std::string::npos)
+        state = 3;
+      else
+        state = 0;
       break;
       case 3 :
       if (t.find(',') != std::string::npos)
