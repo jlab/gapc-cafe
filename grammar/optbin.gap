@@ -1,6 +1,6 @@
 /*
 
-EXAMPLE 1,5_2,5_3,40_4,10_5,20_6,1_7,19_
+EXAMPLE 1 5   2 5   3 40   4 10   5 20   6 1   7 19
 
 HEADER
 <h1>Optimal Binary Search Tree</h1>
@@ -45,14 +45,14 @@ signature Tree(alphabet, answer, inp)
 {
   answer br(answer, inp, answer);
   answer lf(inp);
-  inp f(int, char, int, char);
+  inp f(alphabet, alphabet);
 
   answer nil(void);
   choice [answer] h([answer]);
 }
 
 
-algebra mean implements Tree(alphabet = char, answer = acc, inp =
+algebra mean implements Tree(alphabet = int, answer = acc, inp =
 float)
 {
   acc br(acc l, float x, acc r)
@@ -79,7 +79,7 @@ float)
     return res;
   }
 
-  float f(int key, char a, int prob, char b)
+  float f(int key, int prob)
   {
     float x = prob;
     return x/100.0;
@@ -92,7 +92,7 @@ float)
 }
 
 
-algebra pretty implements Tree(alphabet = char, answer = Rope,
+algebra pretty implements Tree(alphabet = int, answer = Rope,
 inp = int)
 {
   Rope br(Rope l, int x, Rope r)
@@ -121,7 +121,7 @@ inp = int)
     return res;
   }
 
-  int f(int key, char a, int prob, char b)
+  int f(int key, int prob)
   {
     return key;
   }
@@ -132,7 +132,7 @@ inp = int)
   }
 }
 
-algebra tikz implements Tree(alphabet = char, answer = Rope,
+algebra tikz implements Tree(alphabet = int, answer = Rope,
 inp = int)
 {
   Rope br(Rope l, int x, Rope r)
@@ -175,7 +175,7 @@ inp = int)
     return res;
   }
 
-  int f(int key, char a, int prob, char b)
+  int f(int key, int prob)
   {
     return key;
   }
@@ -187,7 +187,7 @@ inp = int)
 }
 
 
-algebra tikze2 implements Tree(alphabet = char, answer = Rope,
+algebra tikze2 implements Tree(alphabet = int, answer = Rope,
 inp = alph)
 {
   Rope br(Rope l, alph x, Rope r)
@@ -229,7 +229,7 @@ inp = alph)
     return res;
   }
 
-  alph f(int key, char a, int prob, char b)
+  alph f(int key, int prob)
   {
     alph res;
     res.key = key;
@@ -250,7 +250,7 @@ grammar btrees uses Tree(axiom = btree)
             lf(char) |
             nil(EMPTY) # h ;
 
-    char = f(INT, CHAR(','), INT, CHAR('_')) ; 
+    char = f(CHAR, CHAR) ; 
 }
 
 instance mean = btrees(mean);
