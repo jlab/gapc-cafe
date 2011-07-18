@@ -525,6 +525,10 @@ using namespace gs;
 
 static const char gapc_name[] = "/usr/bin/gapc";
 
+// workaround:
+#include <cstdio>
+#include <cstring>
+
 bool cruncher::compile(const std::string &src_name_, const std::string &prod, const std::string &exe_name, const std::string &cache_dir)
 {
   try {
@@ -550,8 +554,16 @@ bool cruncher::compile(const std::string &src_name_, const std::string &prod, co
     return false;
   }
   try {
-    fs::rename(fs::path(cache_dir + "/" + exe_name),
-        fs::path("cached/" + exe_name));
+    // workaround because of bug if dest already exists:
+    // http://stackoverflow.com/questions/3156841/boostfilesystemrename-cannot-create-a-file-when-that-file-already-exists
+    // fs::rename(fs::path(cache_dir + "/" + exe_name),
+    //     fs::path("cached/" + exe_name));
+    // delete std::rename if fixed upstream ...
+    fs::path a(cache_dir + "/" + exe_name), b("cached/" + exe_name);
+    int r = std::rename(a.string().c_str(), b.string().c_str());
+    if (r == -1)
+      throw std::runtime_error("Rename error (" + a.string() + " -> " + b.string() + "): "
+              + std::string(std::strerror(errno)));
   } catch (const std::exception &e) {
     log << "Filesystem ren error: " << e.what() << std::endl;
     crunch_state_ = COMPILE_ERROR;
