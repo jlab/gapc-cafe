@@ -323,8 +323,8 @@ algebra mfe implements FS(alphabet = char, comp = int)
   }
 
   int dlr(Subsequence lb, int e, Subsequence rb) {
-    return e + dl_energy(lb, rb) + dr_energy(lb, rb)
-             + termaupenalty(lb, rb);
+    return e + ext_mismatch_energy(lb, rb)
+             + termau_energy(lb, rb);
   }
 
   int sr(Subsequence lb, int e, Subsequence rb) {
@@ -333,17 +333,17 @@ algebra mfe implements FS(alphabet = char, comp = int)
 
   int hl(Subsequence lb, Subsequence f1, Subsequence x,
          Subsequence f2, Subsequence rb) {
-    return hl_energy(f1, f2) + sr_energy(lb, rb);
+    return hl_energy(x) + sr_energy(lb, rb);
   }
 
   int bl(Subsequence bl, Subsequence f1, Subsequence x,
          int e, Subsequence f2, Subsequence br) {
-    return e + bl_energy(f1, x, f2) + sr_energy(bl, br);
+    return e + bl_energy(x, f2) + sr_energy(bl, br);
   }
 
   int br(Subsequence bl, Subsequence f1, int e, Subsequence x,
          Subsequence f2, Subsequence br) {
-    return e + br_energy(f1, x, f2) + sr_energy(bl, br);
+    return e + br_energy(f1, x) + sr_energy(bl, br);
   }
 
   int il(Subsequence f1, Subsequence f2, Subsequence r1, int x,
@@ -352,8 +352,8 @@ algebra mfe implements FS(alphabet = char, comp = int)
   }
 
   int ml(Subsequence bl, Subsequence f1, int x, Subsequence f2, Subsequence br) {
-    return 380 + x + termaupenalty(f1, f2) + sr_energy(bl, br)
-         + dli_energy(f1, f2) + dri_energy(f1, f2);
+    return ml_energy() + ul_energy() + x + termau_energy(f1, f2) + sr_energy(bl, br)
+         + ml_mismatch_energy(f1, f2);
   }
 
   int app(int c1, int c) {
@@ -361,7 +361,7 @@ algebra mfe implements FS(alphabet = char, comp = int)
   }
 
   int ul(int c1) {
-    return 40 + c1;
+    return ul_energy() + c1;
   }
 
   int addss(int c1, Subsequence e) {
@@ -369,7 +369,7 @@ algebra mfe implements FS(alphabet = char, comp = int)
   }
 
   int ssadd(Subsequence e, int x) {
-    return 40 + x + ss_energy(e);
+    return ul_energy() + x + ss_energy(e);
   }
 
   int nil(void) {
@@ -400,7 +400,7 @@ algebra p_func implements FS(alphabet = char, comp = double)
   }
 
   double dlr(Subsequence lb, double e, Subsequence rb) {
-    return e * mk_pf(dl_energy(lb,rb) + dr_energy(lb,rb) + termaupenalty(lb,rb));
+    return e * mk_pf(ext_mismatch_energy(lb,rb) + termau_energy(lb,rb));
   }
 
   double sr(Subsequence lb, double e, Subsequence rb) {
@@ -408,15 +408,15 @@ algebra p_func implements FS(alphabet = char, comp = double)
   }
 
   double hl(Subsequence lb, Subsequence f1, Subsequence x, Subsequence f2, Subsequence rb) {
-    return scale(x.j - x.i + 4) * mk_pf(hl_energy(f1,f2)) * mk_pf(sr_energy(lb,rb));
+    return scale(x.j - x.i + 4) * mk_pf(hl_energy(x)) * mk_pf(sr_energy(lb,rb));
   }
 
   double bl(Subsequence bl, Subsequence f1, Subsequence x, double e, Subsequence f2, Subsequence br) {
-    return scale(x.j - x.i + 4) * e * mk_pf(bl_energy(f1, x, f2)) * mk_pf(sr_energy(bl, br));
+    return scale(x.j - x.i + 4) * e * mk_pf(bl_energy(x, f2)) * mk_pf(sr_energy(bl, br));
   }
 
   double br(Subsequence bl, Subsequence f1, double e, Subsequence x, Subsequence f2, Subsequence br) {
-    return scale(x.j - x.i + 4) * e * mk_pf(br_energy(f1, x, f2)) * mk_pf(sr_energy(bl, br));
+    return scale(x.j - x.i + 4) * e * mk_pf(br_energy(f1, x)) * mk_pf(sr_energy(bl, br));
   }
 
   double il(Subsequence f1, Subsequence f2, Subsequence r1, double x, Subsequence r2, Subsequence f3, Subsequence f4) {
@@ -424,7 +424,7 @@ algebra p_func implements FS(alphabet = char, comp = double)
   }
 
   double ml(Subsequence bl, Subsequence f1, double x, Subsequence f2, Subsequence br) {
-    return scale(4) * x * mk_pf(380 + termaupenalty(f1, f2) + dli_energy(f1, f2) + dri_energy(f1, f2)) * mk_pf(sr_energy(bl, br));
+    return scale(4) * x * mk_pf(ml_energy() + ul_energy() + termau_energy(f1, f2) + ml_mismatch_energy(f1, f2)) * mk_pf(sr_energy(bl, br));
   }
 
   double app(double c1, double c) {
@@ -432,7 +432,7 @@ algebra p_func implements FS(alphabet = char, comp = double)
   }
 
   double ul(double c1) {
-    return c1 * mk_pf(40);
+    return c1 * mk_pf(ul_energy());
   }
 
   double addss(double c1, Subsequence e) {
@@ -440,7 +440,7 @@ algebra p_func implements FS(alphabet = char, comp = double)
   }
 
   double ssadd(Subsequence e, double x) {
-    return scale(e.j - e.i) * x * mk_pf(40 + ss_energy(e));
+    return scale(e.j - e.i) * x * mk_pf(ul_energy() + ss_energy(e));
   }
 
   double nil(void) {
