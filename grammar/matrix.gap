@@ -1,6 +1,6 @@
 /*
 
-EXAMPLE 10,100,100,5,5,50,
+EXAMPLE 10,100,100,5,5,50
 
 HEADER
 <h1>Matrix chain multiplication</h1>
@@ -29,14 +29,14 @@ HEADER
 type tuple = (int ops, int rows, int cols)
 
 signature Sig(alphabet, answer) {
-  answer single(int, char, int, char);
-  answer mult(answer, answer);
+  answer single(int, char, int);
+  answer mult(answer, char, answer);
   choice [answer] h([answer]);
 }
 
 algebra minmult implements Sig(alphabet = char, answer = tuple)
 {
-  tuple single(int r, char a, int c, char b)
+  tuple single(int r, char a, int c)
   {
     tuple x;
     x.ops = 0;
@@ -44,7 +44,7 @@ algebra minmult implements Sig(alphabet = char, answer = tuple)
     x.cols = c;
     return x;
   }
-  tuple mult(tuple a, tuple b)
+  tuple mult(tuple a, char o, tuple b)
   {
     tuple x;
     x.ops = a.ops + b.ops + a.rows*a.cols*b.cols;
@@ -67,13 +67,13 @@ algebra maxmult extends minmult {
   }
 }
 
+// alternative: algebra works on a INT x INT alphabet:
+//   -> single(CHAR)
+
 grammar mopt uses Sig(axiom = matrix) {
 
-  // just a test case for the ys fixpoint limit
-  // the looping for single could be eliminated
-  // using a different alphabet
-  matrix = single(INT, CHAR(','), INT, CHAR(',')) |
-           mult(matrix, matrix)                    # h ;
+  matrix = single(INT, CHAR(','), INT) |
+           mult(matrix, CHAR(','), matrix)                    # h ;
 
 }
 
