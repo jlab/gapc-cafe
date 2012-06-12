@@ -1,0 +1,38 @@
+2012-06-12, Georg Sauthoff <gsauthof@techfak.uni-bielefeld.de>
+
+This repository contains the content and source code of Bellman's GAP Café (
+http://gapc.eu ).
+
+The web site contains of some static pages (generated from templates) and a
+dynamic Web apllication (hosted under `/apps`).
+
+The Web application interactively presents GAP-L examples which are lazily
+compiled and run on user interaction.
+
+## Files
+
+An overview:
+
+- deps - human readable list of dependencies
+
+- CMakeLists.txt - CMake ('Makefile') for the application
+- grammar - GAP-L examples
+- hl.l - syntax highlight GAP-L code
+- menu.rc - runcontrol file for the application's menu
+
+- asroot.sh - setup of web server directory structure
+- init.sh - initialize application directory structure
+- install.sh - install application
+- update.sh - content update script
+- run.sh - application startup script
+
+- pages/*.html_ - template files
+- pages/*.bib - bibliography files (also processed for site generation)
+- web/repl.l - template lexer
+- web/web.mf - Makefile for static content generation
+
+- server/gap - Nginx (Webserver) configuration file
+- server/iptables.sh - packet rules to lock down net access for the application
+- server/var.www.gapapp.gap.wt - mandatory access control (MAC) rules
+
+
