@@ -486,7 +486,12 @@ void form::display_output()
     o << "<<more output cut off>>\n";
   output_->setText(o.str());
 
-  fs::remove_all(cruncher_.temp_dir());
+  try {
+    fs::remove_all(cruncher_.temp_dir());
+  } catch (const std::exception &e) {
+	o << "Error while deleting '" << cruncher_.temp_dir() << "': " << e.what() << std::endl;
+    return;  
+  }
 }
 
 
@@ -523,7 +528,7 @@ void cruncher::crunch(const std::string &src_name, const std::string &prod, cons
 #include <process.hh>
 using namespace gs;
 
-static const char gapc_name[] = "/usr/bin/gapc";
+static const char gapc_name[] = "/vol/gapc/bin/gapc";
 
 // workaround:
 #include <cstdio>
