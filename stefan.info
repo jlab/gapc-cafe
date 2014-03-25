@@ -21,3 +21,5 @@ https://bitbucket.org/gsauthof/processxx
 run the compiled binary like:
 	cd Temp/ && ./gap.wt --docroot='.;/app/resources,/resources,/grammar' --deploy-path '/app/' --http-address zingana --http-port 25777 --accesslog log/gap.log > log/x.log
 	
+one bug should be fixed at some time: form.cc line 490: fs::remove_all(cruncher_.temp_dir());
+	it seems that the out file is removed, but not its containing directory. May spoil for too much runs.
