@@ -20,10 +20,6 @@ build:
 		cd processxx && hg revert --all; \
 	fi;
 	if [ ! -f "gap.wt" ]; then \
-		#~ sed -i "s|/var/www/gapapp/|$(DIR_COMPILE)|" server/var.www.gapapp.gap.wt; \
-		#~ sed -i "s|/mnt/gms/local/wt-3.1.9/|$(WT_PREFIX)/|" server/var.www.gapapp.gap.wt; \
-		#~ sed -i "s|/usr/bin/gapc|$(GAPC_PREFIX)/bin/gapc|" server/var.www.gapapp.gap.wt; \
-		#~ sed -i "s|/usr/bin/gapc|$(GAPC_PREFIX)/bin/gapc|" server/var.www.gapapp.gap.wt; \
 		sed -i "s|/usr/bin/make|$(MAKE)|" form.cc; \
 		sed -i "s|-lboost_thread\$$(BOOST_SUFFIX)|-lboost_thread\$$(BOOST_SUFFIX) -lboost_system\$$(BOOST_SUFFIX)|" processxx/Makefile; \
 		make -C processxx CXXFLAGS="-g -m64 -Wall -pthreads -I$(BOOST_INCLUDE)/" LDFLAGS="-L$(BOOST_PREFIX)/lib -m64" BOOST_SUFFIX="$(BOOST_SUFFIX)" libprocess.a; \
@@ -70,4 +66,18 @@ run:
 	
 distclean:
 	rm -rf $(DIR_COMPILE);
-	hg revert server/var.www.gapapp.gap.wt;
+	rm -rf CMakeFiles
+	rm -f CMakeCache.txt
+	hg revert CMakeLists.txt
+	rm -f cmake_install.cmake
+	rm -f Makefile
+	rm -f hl.cc
+	rm -f gap.wt
+	rm -f web/lex.repl_.c
+	rm -f web/repl
+	rm -f pages/adp_bib.html
+	rm -f pages/adp_bib_bib.html
+	rm -f pages/bio_bib.html
+	rm -f pages/bio_bib_bib.html
+	rm -f pages/gap_bib.html
+	rm -f pages/gap_bib_bib.html
