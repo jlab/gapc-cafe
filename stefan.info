@@ -1,0 +1,23 @@
+bibtex2html
+hlins
+flex
+wt
+boost
+g++
+make
+tidy
+https://bitbucket.org/gsauthof/processxx
+
+
+/vol/local/bin/bibtex2html	1.93
+/vol/gapc/bin/hlins	v0.39
+/vol/gapc/bin/flex	2.5.37
+/vol/gcc-4.5/bin/g++	4.5.2
+/vol/gnu/bin/make	GNU Make 3.81
+/vol/gapc/bin/tidy	HTML Tidy for HTML5 (experimental) for Solaris https://github.com/w3c/tidy-html5/tree/c63cc39
+/vol/gapc/lib/libboost*-gcc45-mt-1_52
+/vol/gapc/lib/libwt*	3.3.1
+
+run the compiled binary like:
+	cd Temp/ && ./gap.wt --docroot='.;/app/resources,/resources,/grammar' --deploy-path '/app/' --http-address zingana --http-port 25777 --accesslog log/gap.log > log/x.log
+	

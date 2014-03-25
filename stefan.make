@@ -49,7 +49,6 @@ build:
 	cp -u grammar/* $(DIR_COMPILE)/grammar
 	cp -u pages/menu.html_ $(DIR_COMPILE)/pages
 	cd web && flex repl.l && g++ -m64 lex.repl_.c -o repl -I$(BOOST_INCLUDE) $(LDFLAGS_EXTRA)
-	export TMPDIR
 	$(MAKE) -f web/web.mf SRC=pages DST=$(DIR_COMPILE) INSERT=web/repl
 	cp -u pages/*_bib_bib.html $(DIR_COMPILE)
 	cp -u resources/gap.css $(DIR_COMPILE)/resources
